@@ -22,7 +22,7 @@ def seen(phenny, input):
 
    if phenny.seen.has_key(nick): 
       channel, t = phenny.seen[nick]
-      t = time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime(t))
+      t = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(t))
 
       msg = "I last saw %s at %s on %s" % (nick, t, channel)
       phenny.reply(msg)
@@ -32,11 +32,11 @@ seen.rule = (['seen'], r'(\S+)')
 @deprecated
 def f_note(self, origin, match, args): 
    def note(self, origin, match, args): 
-      if not hasattr(self.bot, 'seen'): 
+      if not hasattr(self.bot, 'seen'):
          self.bot.seen = {}
       if origin.sender.startswith('#'): 
          # if origin.sender == '#inamidst': return
-         self.seen[origin.nick.lower()] = (origin.sender, time.time())
+         self.seen[origin.nick.lower()] = (origin.sender, time.localtime())
 
       # if not hasattr(self, 'chanspeak'): 
       #    self.chanspeak = {}
