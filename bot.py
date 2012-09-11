@@ -178,7 +178,7 @@ class Phenny(irc.Bot):
             s.group = match.group
             s.groups = match.groups
             s.args = args
-            s.admin = origin.nick in self.config.admins
+            s.admin = origin.nick.lower() in self.config.admins
             s.owner = origin.nick == self.config.owner
             return s
 
