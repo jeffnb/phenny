@@ -36,7 +36,7 @@ def f_note(self, origin, match, args):
          self.bot.seen = {}
       if origin.sender.startswith('#'): 
          # if origin.sender == '#inamidst': return
-         self.seen[origin.nick.lower()] = (origin.sender, time.localtime())
+         self.seen[origin.nick.lower()] = (origin.sender, time.time())
 
       # if not hasattr(self, 'chanspeak'): 
       #    self.chanspeak = {}
