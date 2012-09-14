@@ -37,6 +37,7 @@ def intro(phenny, input):
     if not input.nick in phenny.bot.intro:
         phenny.msg(input.nick, "Welcome to " + input.sender)
         phenny.msg(input.nick, "Sudo is a group of computer science students at UNLV. The leaders are coders from the community dedicated to help out in the education system.")
+        phenny.msg(input.nick, "Have a question and no one is around during the day? Use .beacon")
         phenny.bot.intro.append(input.nick.lower())
     else:
         phenny.reply("Welcome back")
